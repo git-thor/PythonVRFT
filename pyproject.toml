@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pythonvrft"
-version = "0.0.6"
+version = "0.0.7"
 description = "VRFT Python Library"
 readme = "README.md"
 keywords = ["VRFT", "Virtual Reference Feedback Tuning", "Data Driven Control", "Adaptive Control"]
