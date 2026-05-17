@@ -27,7 +27,7 @@ class TestVRFT(TestCase):
 
         expected_theta = np.array([1.93220784, -1.05808206, 1.26623764, 0.0088772])
         expected_loss = 0.00064687904235295
-        
+
         for t_end in t_ends:
             t = np.arange(t_start, t_end, t_step)
             u = np.ones(len(t)).tolist()
@@ -50,12 +50,12 @@ class TestVRFT(TestCase):
             theta1, _, loss1, _ = compute_vrft(data, refModel, control, prefilter)
             theta2, _, loss2, _ = compute_vrft([data], refModel, control, prefilter)
             theta3, _, loss3, _ = compute_vrft([data, data], refModel, control, prefilter)
-            
+
             self.assertTrue(np.isclose(loss1, loss2))
             self.assertTrue(np.isclose(loss1, loss3))
             self.assertTrue(np.linalg.norm(theta1-theta2)<1e-15)
             self.assertTrue(np.linalg.norm(theta1-theta3)<1e-15)
-            self.assertTrue(np.linalg.norm(theta1-expected_theta, np.infty) < 1e-5)
+            self.assertTrue(np.linalg.norm(theta1-expected_theta, np.inf) < 1e-5)
             self.assertTrue(abs(expected_loss - loss1) < 1e-5)
 
     def test_iv(self):
@@ -63,7 +63,7 @@ class TestVRFT(TestCase):
         t_step = 1e-2
         t_ends = [10, 10 + t_step]
 
-        
+
         for t_end in t_ends:
             t = np.arange(t_start, t_end, t_step)
             u = np.ones(len(t)).tolist()
@@ -78,7 +78,7 @@ class TestVRFT(TestCase):
             _, y = scipysig.dlsim(sys, u, t)
             y = y.flatten() + 1e-2 * np.random.normal(size=t.size)
             data2 = iddata(y,u,t_step,[0])
-            
+
 
             refModel = ExtendedTF([0.2], [1, -0.8], dt=t_step)
             prefilter = refModel * (1-refModel)

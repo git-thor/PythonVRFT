@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pythonvrft"
+version = "0.0.6"
+description = "VRFT Python Library"
+readme = "README.md"
+keywords = ["VRFT", "Virtual Reference Feedback Tuning", "Data Driven Control", "Adaptive Control"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Topic :: Scientific/Engineering",
+]
+requires-python = ">=3.5"
+dependencies = [
+    "scipy",
+    "numpy",
+]
+
+[[project.authors]]
+name = "Alessio Russo"
+email = "alessior@kth.se"
+
+[project.urls]
+Homepage = "https://github.com/rssalessio/PythonVRFT/"
+
+[project.license]
+text = "GPL3"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[dependency-groups]
+dev = [
+  "pytest"
+]
+
+[tool.setuptools.packages.find]
+include = ["vrft", "test"]

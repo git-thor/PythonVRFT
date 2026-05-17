@@ -33,7 +33,7 @@ class TestUtils(TestCase):
         data = iddata(y, u, t_step, [0])
         r1, _ = virtual_reference(data, sys.num, sys.den)
         r2 = deconvolve_signal(sys, data.y)
-        self.assertTrue(np.linalg.norm(r2-r1[:r2.size], np.infty) <  1e-3)
+        self.assertTrue(np.linalg.norm(r2-r1[:r2.size], np.inf) <  1e-3)
 
 
     def test_check_system(self):

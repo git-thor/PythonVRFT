@@ -16,21 +16,22 @@ Our code is released under the MIT license (refer to the [LICENSE](https://githu
 
 ## Requirements
 
-To run the library you need atleast Python 3.5.
+To run the library you need at least Python 3.5.
 
 Other dependencies:
-- NumPy (1.19.5)
-- SciPy (1.6.0)
+- NumPy
+- SciPy
 
 ## Installation
 
 - Install from source: git clone this repo and from the root folder execute the command ```pip install .```
+- Install with modern Python tooling: ```uv sync``` (requires [uv](https://github.com/astral-sh/uv))
 
 ## Usage/Examples
 
 You can import the library by typing ```python import vrft``` in your code.
 
-To learn how to use the library, check the examples located in the examples/ folder. At the moment there are examples available. 
+To learn how to use the library, check the examples located in the examples/ folder. At the moment there are examples available.
 Check example3 to see usage of instrumental variables.
 
 In general the code has the following structure
@@ -73,7 +74,7 @@ theta, _, _, C = compute_vrft(data, ref_model, control, pre_filter)
 To execute tests run the following command from the root folder of the repo
 ```sh
 python -m unittest
-``` 
+```
 
 ## Changelog
 
@@ -97,4 +98,3 @@ If you find this code useful in your research, please, consider citing it:
 >}
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-

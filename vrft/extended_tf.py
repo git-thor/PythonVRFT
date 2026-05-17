@@ -17,12 +17,11 @@
 from __future__ import division
 
 import numpy as np
-import scipy.signal as scipysig
-from scipy.signal.ltisys import TransferFunction as TransFun
+from scipy.signal._ltisys import TransferFunctionDiscrete, TransferFunction as TransFun
 from numpy import polymul, polyadd
 
 
-class ExtendedTF(scipysig.ltisys.TransferFunctionDiscrete):
+class ExtendedTF(TransferFunctionDiscrete):
     """
     Extended definition of the discrete transfer function implemented in scipy.signal.
     Supports arithmetical operations between transfer function and feedback loop
@@ -110,5 +109,3 @@ class ExtendedTF(scipysig.ltisys.TransferFunctionDiscrete):
 
     __rmul__ = __mul__
     __radd__ = __add__
-
-
